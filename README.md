@@ -1,2 +1,2 @@
-# _vim
-vim settings
+# vim
+:PluginInstall
