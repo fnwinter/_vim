@@ -82,7 +82,7 @@ set nocsverb
 set cscopequickfix=s-,c-,d-,i-,t-,e-,f-
 set csverb
 
-"---------------------- Key mappings ------------------------------------------
+"=-= Key mappings =-=
 map <C-w>         :wincmd w<CR>
 map <C-n>         :NERDTree<CR>
 map <C-g>         :NERDTreeFind<CR>
@@ -98,7 +98,7 @@ map <C-t>         :Terminal<CR>
 
 map <C-e>         :call OpenExplore()<CR>
 
-"---------------------- Functionss -------------------------------------------
+"=-= Functions =-=
 function OpenExplore()
   execute "Explore"
 endfunction
