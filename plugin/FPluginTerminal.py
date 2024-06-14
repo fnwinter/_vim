@@ -8,9 +8,7 @@ while True:
   command = vim.eval("command")
   if command == 'exit' or command == '':
     break
-  output = subprocess.check_output(command.split(' '), shell=True, timeout=10)
+  output = subprocess.check_output(command.strip().split(' '), shell=True, timeout=10)
   str_output = output.decode('utf-8')
-  print("\r\n" + str_output)
-  vim.command("vne")
-  for line in str_output.split('\n'):
-    vim.command("put ='%s'" % line)
+  print(str_output + "\n")
+
