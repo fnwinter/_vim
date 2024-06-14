@@ -97,8 +97,17 @@ map <C-0>         :SearchTag<CR>
 map <C-t>         :Terminal<CR>
 
 map <C-e>         :call OpenExplore()<CR>
+map <C-q>         :call Help()<CR>
 
 "=-= Functions =-=
 function OpenExplore()
   execute "Explore"
+endfunction
+
+function Help()
+  echo "=== Help ==="
+  echo "Search -> search file"
+  echo "LoadTag -> load ctags"
+  echo "MakeTag -> make ctags and cscope"
+  echo "Terminal -> call terminal"
 endfunction
