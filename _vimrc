@@ -98,6 +98,7 @@ map <C-t>         :Terminal<CR>
 
 map <C-e>         :call OpenExplore()<CR>
 map <C-q>         :call Help()<CR>
+map <C-S-r>       :redraw!<CR>
 
 "=-= Functions =-=
 function OpenExplore()
