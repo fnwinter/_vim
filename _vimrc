@@ -97,7 +97,7 @@ map <C-0>         :SearchTag<CR>
 map <C-t>         :Terminal<CR>
 
 map <C-e>         :call OpenExplore()<CR>
-map <C-q>         :call Help()<CR>
+map <C-S-h>       :call Help()<CR>
 map <C-S-r>       :redraw!<CR>
 
 "=-= Functions =-=
