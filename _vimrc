@@ -66,6 +66,7 @@ set hlsearch
 set guioptions+=m
 set clipboard=unnamedplus
 set noswapfile
+syntax on
 colorscheme desert
 let NERDTreeShowHidden=1
 
