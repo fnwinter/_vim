@@ -3,6 +3,7 @@ import vim
 import sys
 import glob
 import hashlib
+import platform
 
 CURRENT_WORKING_PATH = vim._getcwd()
 USER_HOME = os.path.expanduser("~")
@@ -36,3 +37,12 @@ def get_hash_path(tag_path, git_path):
   _tag_path = os.path.join(tag_path, hash_tag_path_name[:16])
   os.system("mkdir -p %s" % _tag_path)
   return _tag_path
+
+def get_find_by_extension():
+  _os_name == platform.uname().system
+  _filter = ""
+  if _os_name == 'Linux':
+    _filter = ""
+  elif _os_name == 'Darwin':
+    _filter = ""
+  return _filter

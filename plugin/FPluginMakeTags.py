@@ -25,13 +25,14 @@ os.chdir(tag_path)
 
 if os.path.exists(tag_path):
   # Make ctag list
-  ctag_ext_list = " '.*\.\(java\|kt\|h\|hpp\|cpp\|c\|s\|S\|in\|py\|lua\)$' "
-  cmd = "time find " + git_root_path + " -type f -regex " + ctag_ext_list + " -exec ctags -R {} +"
+  ctag_ext_list = " -regex '.*\.\(java\|kt\|h\|hpp\|cpp\|c\|s\|S\|in\|py\|lua\)$' "
+  #ctag_ext_list = " \( -iname '*.h' -o -name '*.cpp' -o -iname '*.java' \) "
+  cmd = "time find " + git_root_path + " -type f  " + ctag_ext_list + " -exec ctags -R {} +"
   print(cmd)
   os.system(cmd)
 
   # Make cscope list
-  cmd = "time find " + git_root_path + " -type f -regex " + ctag_ext_list + " -print > cscope.files "
+  cmd = "time find " + git_root_path + " -type f " + ctag_ext_list + " -print > cscope.files "
   print(cmd)
   os.system(cmd)
   cmd = "time cscope -i cscope.files -b"
