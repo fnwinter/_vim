@@ -1,11 +1,15 @@
 import os
-import vim
 import sys
 import glob
 import hashlib
 import platform
 
-CURRENT_WORKING_PATH = vim._getcwd()
+try:
+  import vim
+  CURRENT_WORKING_PATH = vim._getcwd()
+except:
+  pass
+
 USER_HOME = os.path.expanduser("~")
 
 def create_tag_save_path():
@@ -38,11 +42,17 @@ def get_hash_path(tag_path, git_path):
   os.system("mkdir -p %s" % _tag_path)
   return _tag_path
 
-def get_find_by_extension():
-  _os_name == platform.uname().system
-  _filter = ""
-  if _os_name == 'Linux':
-    _filter = ""
-  elif _os_name == 'Darwin':
-    _filter = ""
+def get_find_filter():
+  """
+  >>> print(get_find_filter())
+  \( -iname '*.h'  -o  -iname '*.hpp'  -o  -iname '*.c'  -o  -iname '*.cpp'  -o  -iname '*.cxx'  -o  -iname '*.py'  -o  -iname '*.lua'  -o  -iname '*.java'  -o  -iname '*.kt'  -o  -iname '*.rs'  -o  -iname '*.cs'  -o  -iname '*.in'  -o  -iname '*.s'  -o  -iname '*.S' \)
+  """
+
+  _filter = "\("
+  ext_list = ['h', 'hpp', 'c', 'cpp', 'cxx', 'py','lua','java','kt','rs','cs', 'in', 's', 'S']
+  for ext in ext_list:
+    _filter += f" -iname '*.{ext}' "
+    if ext != ext_list[-1]:
+      _filter += ' -o '
+  _filter += "\)"
   return _filter

@@ -9,6 +9,7 @@ sys.path.append(MODULE_PATH)
 from FPlugin import create_tag_save_path
 from FPlugin import get_git_path
 from FPlugin import get_hash_path
+from FPlugin import get_find_filter
 
 # create root tag path
 tag_save_path = create_tag_save_path()
@@ -25,8 +26,7 @@ os.chdir(tag_path)
 
 if os.path.exists(tag_path):
   # Make ctag list
-  ctag_ext_list = " -regex '.*\.\(java\|kt\|h\|hpp\|cpp\|c\|s\|S\|in\|py\|lua\)$' "
-  #ctag_ext_list = " \( -iname '*.h' -o -name '*.cpp' -o -iname '*.java' \) "
+  ctag_ext_list = get_find_filter()
   cmd = "time find " + git_root_path + " -type f  " + ctag_ext_list + " -exec ctags -R {} +"
   print(cmd)
   os.system(cmd)
