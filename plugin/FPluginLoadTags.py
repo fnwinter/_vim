@@ -19,7 +19,7 @@ tag_path = get_hash_path(tag_save_path, git_root_path)
 
 # Load tags
 print(tag_path)
-vim.command("cs add %s/cscope.out" % tag_path)
-vim.command("set tags=%s/tags" % tag_path)
+vim.command(f"cs add {tag_path}/cscope.out")
+vim.command(f"set tags={tag_path}/tags")
 
 print("Tag loaded")
