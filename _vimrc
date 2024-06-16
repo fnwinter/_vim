@@ -8,6 +8,7 @@ call vundle#begin()
 
 "--- Custom vundle settings START
 Plugin 'The-NERD-tree'
+Plugin 'udalov/kotlin-vim'
 "--- Custom vundle settings END
 
 " alternatively, pass a path where Vundle should install plugins
