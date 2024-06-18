@@ -18,6 +18,14 @@ def create_tag_save_path():
   return _tag_save_path
 
 def get_git_path():
+  try:
+    _path = vim.eval('a:1')
+    if not _path:
+      _path = os.path.abspath(os.getcwd())
+      return _path
+  except:
+    pass
+
   _git_path = None
   depth = 0
   max_depth = 50

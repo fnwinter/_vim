@@ -2,11 +2,11 @@ function! FPlugin#git_search()
   exec 'py3file ~/.vim/plugin/FPluginSearch.py'
 endfunction
 
-function! FPlugin#make_tags()
+function! FPlugin#make_tags(...)
   exec 'py3file ~/.vim/plugin/FPluginMakeTags.py'
 endfunction
 
-function! FPlugin#load_tags()
+function! FPlugin#load_tags(...)
   exec 'py3file ~/.vim/plugin/FPluginLoadTags.py'
 endfunction
 
@@ -22,7 +22,7 @@ function! FPlugin#terminal()
 endfunction
 
 command Search call FPlugin#git_search()
-command MakeTag call FPlugin#make_tags()
-command LoadTag call FPlugin#load_tags()
+command -nargs=* MakeTag call FPlugin#make_tags(<f-args>)
+command -nargs=* LoadTag call FPlugin#load_tags(<f-args>)
 command SearchTag call FPlugin#search_tags()
 command Terminal call FPlugin#terminal()
