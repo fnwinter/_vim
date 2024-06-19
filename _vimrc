@@ -109,8 +109,9 @@ endfunction
 
 function Help()
   echo "=== Help ==="
-  echo "Search -> search file"
-  echo "LoadTag -> load ctags"
-  echo "MakeTag -> make ctags and cscope"
-  echo "Terminal -> call terminal"
+  echo "Search > search file"
+  echo "SearchTag > search keyword from tags"
+  echo "LoadTag > load ctags"
+  echo "MakeTag > make ctags and cscope"
+  echo "Terminal > call terminal"
 endfunction

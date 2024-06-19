@@ -10,6 +10,10 @@ function! FPlugin#load_tags(...)
   exec 'py3file ~/.vim/plugin/FPluginLoadTags.py'
 endfunction
 
+function! FPlugin#command(...)
+  exec 'py3file ~/.vim/plugin/FPluginCommand.py'
+endfunction
+
 function! FPlugin#search_tags()
   let input = input("keyword ?> ")
   if input != ""
@@ -24,5 +28,6 @@ endfunction
 command Search call FPlugin#git_search()
 command -nargs=* MakeTag call FPlugin#make_tags(<f-args>)
 command -nargs=* LoadTag call FPlugin#load_tags(<f-args>)
+command -nargs=* Command call FPlugin#command(<f-args>)
 command SearchTag call FPlugin#search_tags()
 command Terminal call FPlugin#terminal()
