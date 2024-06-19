@@ -22,16 +22,21 @@ except:
   pass
 
 command_file = os.path.join(tag_save_path, "command.txt")
-if _command.lower() == "show" and os.path.exists(command_file):
+if os.path.exists(command_file):
   with open(command_file) as f:
     print("=== command ===")
     lines = f.readlines()
     for _index in range(len(lines)):
-      print(f"[{_index}] {lines[_index]}")
-    
-    vim.command('let command = input("command ?> ")')
-    c = vim.eval("command")
-    if c.strip() != "":
-      _c = int(c)
+      if _command == "show":
+        print(f"[{_index}] {lines[_index]}")
+  
+    if _command == "show":
+      vim.command('let command = input("command ?> ")')
+      c = vim.eval("command")
+      if c.strip() != "":
+        _c = int(c)
+        vim.command(f"!{lines[_c]}")
+    elif _command.isdecimal():
+      _c = int(_command)
       vim.command(f"!{lines[_c]}")
 
